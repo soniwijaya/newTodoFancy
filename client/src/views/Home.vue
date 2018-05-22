@@ -5,7 +5,7 @@
         <div class="col-md-6" style="margin:auto 0; background-color:white; padding: 60px; border: 1px solid #e6e6e6;">
           <h3 class="text-center" style="margin-top:0">Todo Fancy</h3>
             <div class="form-group" style="text-align:center">
-              <button class="btn btn-primary" scope="email" @click="loginFacebook">Login With Facebook</button>
+              <button class="btn btn-primary" data-scope="public_profile,email" @click="loginFacebook">Login With Facebook</button>
             </div>
             <div class="form-group">
                 <div class="col-md-5" style="padding:0">
@@ -148,7 +148,7 @@ export default {
             swal("Your error", error.response.data.message, "error")
           })
         }
-      })
+      }, {scope: 'public_profile, email', return_scopes: true})
     }
   },
   created: function(){
